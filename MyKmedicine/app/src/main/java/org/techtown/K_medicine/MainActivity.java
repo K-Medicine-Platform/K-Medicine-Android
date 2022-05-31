@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton btn2 = (ImageButton) findViewById(R.id.btn2);
-        ImageButton btnQr = (ImageButton) findViewById(R.id.btnQr);
+        ImageButton btn2 = (ImageButton) findViewById(R.id.btn2);  // 버튼1
+        ImageButton btnQr = (ImageButton) findViewById(R.id.btnQr);  // 버튼2
         btn2.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
 
 
+        // 리스트 시작 //
         list = new ArrayList<String>();
 
         settingList();
