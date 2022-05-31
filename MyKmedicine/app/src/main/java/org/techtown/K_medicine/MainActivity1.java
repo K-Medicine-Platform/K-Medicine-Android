@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -18,8 +19,15 @@ public class MainActivity1 extends AppCompatActivity {
     private static final int REQUEST_CODE_ACTIVITY_5 = 5;
     private static final int REQUEST_CODE_ACTIVITY_6 = 6;
 
+    int list_adapter_id;
+
     Button btn_sys_back;
     Button btn_sys_home;
+
+    TextView text_print_order_number;
+    TextView text_print_supplier;
+    TextView text_print_receiver;
+    TextView text_print_items_info_summary;
 
     Button btn_data_check;
     Button btn_tax_invoice;
@@ -70,6 +78,11 @@ public class MainActivity1 extends AppCompatActivity {
         btn_sys_back = findViewById(R.id.btn_sys_back); // 사용 예정
         btn_sys_home = findViewById(R.id.btn_sys_home); // 사용 예정
 
+        text_print_order_number = findViewById(R.id.text_print_order_number);
+        text_print_supplier = findViewById(R.id.text_print_supplier);
+        text_print_receiver = findViewById(R.id.text_print_receiver);
+        text_print_items_info_summary = findViewById(R.id.text_print_items_info_summary);
+
         btn_data_check = findViewById(R.id.btn_data_check);
         btn_tax_invoice = findViewById(R.id.btn_tax_invoice);
         btn_transaction_name = findViewById(R.id.btn_transaction_name);
@@ -77,7 +90,6 @@ public class MainActivity1 extends AppCompatActivity {
         btn_deliver_paper = findViewById(R.id.btn_deliver_paper);
 
         btn_done = findViewById(R.id.btn_done); // 사용 예정
-
 
         activity_2_image_list = new ArrayList<>();
         activity_2_uri_list = new ArrayList<>();
@@ -88,6 +100,21 @@ public class MainActivity1 extends AppCompatActivity {
         activity_5_image_list = new ArrayList<>();
         activity_5_uri_list = new ArrayList<>();
 
+        // 이전 엑티비티에 선택한 어뎁터뷰 id에 따른, 값 출력 //
+        list_adapter_id = getIntent().getIntExtra("LIST_ADAPTER_ID", -1);
+        // 추후 API에서 값 받아서 넣도록 만들기 //
+        if(list_adapter_id == 0) {
+            text_print_order_number.setText("거래 번호  : 20220302-2");
+            text_print_supplier.setText("인계사       : 행복약품");
+            text_print_receiver.setText("인수사       : 행복병원");
+            text_print_items_info_summary.setText("물품 정보  : 항생제 외 3개 품목");
+        }
+        else if(list_adapter_id == 1) {
+            text_print_order_number.setText("거래 번호  : ks0202020");
+            text_print_supplier.setText("인계사       : ㅇㅇ 제약회사");
+            text_print_receiver.setText("인수사       : ㅇㅇ 약국");
+            text_print_items_info_summary.setText("물품 정보  : 항생제 외 5개 품목");
+        }
 
 
         btn_data_check.setOnClickListener(new View.OnClickListener() {
@@ -190,9 +217,6 @@ public class MainActivity1 extends AppCompatActivity {
                 intent6.putExtra("Activity_5_is_edit_item_temp_2", activity_5_is_edit_item_temp_2);
                 intent6.putExtra("Activity_5_is_edit_item_temp_3", activity_5_is_edit_item_temp_3);
                 intent6.putExtra("Activity_5_is_edit_item_temp_4", activity_5_is_edit_item_temp_4);
-                System.out.println("MainActivity에서 보냄");
-                System.out.println(activity_2_image_list);
-                System.out.println(activity_2_uri_list);
                 startActivityForResult(intent6, REQUEST_CODE_ACTIVITY_6);
             }
         });
