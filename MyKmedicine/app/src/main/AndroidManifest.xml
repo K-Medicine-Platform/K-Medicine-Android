@@ -44,6 +44,7 @@
         </activity>
 
         <activity android:name=".Change" />
+        <activity android:name=".Qr" />
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,8 +29,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton btn2 = (ImageButton) findViewById(R.id.btn2);  // 버튼1
-        ImageButton btnQr = (ImageButton) findViewById(R.id.btnQr);  // 버튼2
+        ImageButton btn2 = (ImageButton) findViewById(R.id.btn2);
+        ImageButton btnQr = (ImageButton) findViewById(R.id.btnQr);
+
+        Intent intent = getIntent();
+
+        String text = intent.getStringExtra("text");
+        String text2 = intent.getStringExtra("text2");
+        String text3 = intent.getStringExtra("text3");
+
+        TextView text_tv = findViewById(R.id.text_tv);
+        TextView text_tv2 = findViewById(R.id.text_tv2);
+        TextView text_tv3 = findViewById(R.id.text_tv3);
+        text_tv.setText(text);
+        text_tv2.setText(text2);
+        text_tv3.setText(text3);
 
         editSearch = (EditText) findViewById(R.id.editSearch);
 
