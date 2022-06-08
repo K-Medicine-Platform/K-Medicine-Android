@@ -37,7 +37,7 @@
                 android:textSize="46dp"
                 android:textColor="@color/black"/>
 
-            <org.vdoring.k_medicine_ppt4and5.PaintView
+            <org.techtown.K_medicine.PaintView
                 android:id="@+id/paintView"
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
