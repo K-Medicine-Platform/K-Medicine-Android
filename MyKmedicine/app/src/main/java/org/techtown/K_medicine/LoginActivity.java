@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // API 호출하여 로그인 가능 여부 확인하는 코드 넣기 //
 
                 Intent intent = new Intent(getApplicationContext(), User.class);
                 startActivity(intent);
