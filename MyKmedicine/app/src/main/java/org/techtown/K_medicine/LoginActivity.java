@@ -51,9 +51,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // API 호출하여 로그인 가능 여부 확인하는 코드 넣기 //
 
+                save();
                 Intent intent = new Intent(getApplicationContext(), User.class);
                 startActivity(intent);
-                save();
             }
         });
 
